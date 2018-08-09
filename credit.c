@@ -1,6 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
 
+// declare functions
+int check_validity(long long card_num);
+
 int main(void)
 {
     long long card_num;
@@ -23,35 +26,8 @@ int main(void)
     if (card_digits == 13 && card_num >= 4000000000000 && card_num < 5000000000000)
     {
 
-        // separate every other number, multiply and add to total
-        long long second_to_last = card_num / 10;
-        int total_sum = 0;
-        for (long long i = second_to_last; i > 1;)
-        {
-            int j = (i % 10) * 2;
-
-            // separate 2 digits and add them to total
-            while (j >= 10)
-            {
-                for (int k = j; j >= 1;)
-                {
-                    int l = k % 10;
-                    total_sum += l;
-                    j = j / 10;
-                    k = k / 10;
-                }
-            }
-            total_sum += j;
-            i = i / 100;
-        }
-
-        // add remaining numbers to total
-        for (long long m = card_num; m >= 1;)
-        {
-            int n = m % 10;
-            total_sum += n;
-            m = m / 100;
-        }
+        // Luhn’s algorithm function
+        int total_sum = check_validity(card_num);
 
         // check validity
         if (total_sum % 10 == 0)
@@ -68,35 +44,8 @@ int main(void)
     else if (card_digits == 16 && card_num >= 4000000000000000 && card_num < 5000000000000000)
     {
 
-        // separate every other number, multiply and add to total
-        long long second_to_last = card_num / 10;
-        int total_sum = 0;
-        for (long long i = second_to_last; i > 1;)
-        {
-            int j = (i % 10) * 2;
-
-            // separate 2 digits and add them to total
-            while (j >= 10)
-            {
-                for (int k = j; j >= 1;)
-                {
-                    int l = k % 10;
-                    total_sum += l;
-                    j = j / 10;
-                    k = k / 10;
-                }
-            }
-            total_sum += j;
-            i = i / 100;
-        }
-
-        // add remaining numbers to total
-        for (long long m = card_num; m >= 1;)
-        {
-            int n = m % 10;
-            total_sum += n;
-            m = m / 100;
-        }
+        // Luhn’s algorithm function
+        int total_sum = check_validity(card_num);
 
         // check validity
         if (total_sum % 10 == 0)
@@ -113,35 +62,8 @@ int main(void)
     else if (card_digits == 16 && card_num >= 5100000000000000 && card_num < 5600000000000000)
     {
 
-        // separate every other number, multiply and add to total
-        long long second_to_last = card_num / 10;
-        int total_sum = 0;
-        for (long long i = second_to_last; i > 1;)
-        {
-            int j = (i % 10) * 2;
-
-            // separate 2 digits and add them to total
-            while (j >= 10)
-            {
-                for (int k = j; j >= 1;)
-                {
-                    int l = k % 10;
-                    total_sum += l;
-                    j = j / 10;
-                    k = k / 10;
-                }
-            }
-            total_sum += j;
-            i = i / 100;
-        }
-
-        // add remaining numbers to total
-        for (long long m = card_num; m >= 1;)
-        {
-            int n = m % 10;
-            total_sum += n;
-            m = m / 100;
-        }
+        // Luhn’s algorithm function
+        int total_sum = check_validity(card_num);
 
         // check validity
         if (total_sum % 10 == 0)
@@ -158,35 +80,8 @@ int main(void)
     else if (card_digits == 15 && card_num >= 340000000000000 && card_num < 350000000000000)
     {
 
-        // separate every other number, multiply and add to total
-        long long second_to_last = card_num / 10;
-        int total_sum = 0;
-        for (long long i = second_to_last; i > 1;)
-        {
-            int j = (i % 10) * 2;
-
-            // separate 2 digits and add them to total
-            while (j >= 10)
-            {
-                for (int k = j; j >= 1;)
-                {
-                    int l = k % 10;
-                    total_sum += l;
-                    j = j / 10;
-                    k = k / 10;
-                }
-            }
-            total_sum += j;
-            i = i / 100;
-        }
-
-        // add remaining numbers to total
-        for (long long m = card_num; m >= 1;)
-        {
-            int n = m % 10;
-            total_sum += n;
-            m = m / 100;
-        }
+        // Luhn’s algorithm function
+        int total_sum = check_validity(card_num);
 
         // check validity
         if (total_sum % 10 == 0)
@@ -203,35 +98,8 @@ int main(void)
     else if (card_digits == 15 && card_num >= 370000000000000 && card_num < 380000000000000)
     {
 
-        // separate every other number, multiply and add to total
-        long long second_to_last = card_num / 10;
-        int total_sum = 0;
-        for (long long i = second_to_last; i > 1;)
-        {
-            int j = (i % 10) * 2;
-
-            // separate 2 digits and add them to total
-            while (j >= 10)
-            {
-                for (int k = j; j >= 1;)
-                {
-                    int l = k % 10;
-                    total_sum += l;
-                    j = j / 10;
-                    k = k / 10;
-                }
-            }
-            total_sum += j;
-            i = i / 100;
-        }
-
-        // add remaining numbers to total
-        for (long long m = card_num; m >= 1;)
-        {
-            int n = m % 10;
-            total_sum += n;
-            m = m / 100;
-        }
+        // Luhn’s algorithm function
+        int total_sum = check_validity(card_num);
 
         // check validity
         if (total_sum % 10 == 0)
@@ -248,4 +116,37 @@ int main(void)
         printf("INVALID\n");
     }
     return 0;
+}
+
+
+// Luhn’s algorithm
+int check_validity(long long card_num)
+{
+    long long second_to_last = card_num / 10;
+    int total_sum = 0;
+    for (long long i = second_to_last; i > 1;)
+    {
+        int j = (i % 10) * 2;
+        // separate 2 digits and add them to total
+        while (j >= 10)
+        {
+            for (int k = j; j >= 1;)
+            {
+                int l = k % 10;
+                total_sum += l;
+                j = j / 10;
+                k = k / 10;
+            }
+        }
+        total_sum += j;
+        i = i / 100;
+    }
+    // add remaining numbers to total
+    for (long long m = card_num; m >= 1;)
+    {
+        int n = m % 10;
+        total_sum += n;
+        m = m / 100;
+    }
+    return total_sum;
 }
