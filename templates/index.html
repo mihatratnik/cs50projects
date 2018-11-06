@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table" action="/" method="post">
+        <thead align="left">
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+        </thead>
+        <tbody align="left">
+            {% for stock in portfolio %}
+                <tr>
+                    <td>{{stock.stock_symbol}}</td>
+                    <td>{{stock.name}}</td>
+                    <td>{{stock.stock_qty}}</td>
+                    <td>{{stock.price}}</td>
+                    <td>{{stock.total}}</td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="4">CASH</td>
+                    <td>{{cash}}</td>
+                </tr>
+        </tbody>
+        <tfoot align="left">
+            <tr>
+                <td colspan="4">TOTAL</td>
+                <td>{{subtotal}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

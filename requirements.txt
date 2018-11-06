@@ -1,0 +1,18 @@
+# libraries
+    cs50
+    Flask
+    Flask-Session
+    requests
+
+# variables
+    /login, / register
+        id
+        username
+        user_id
+    /quote, /buy, /sell
+        stock
+        symbol
+        shares
+
+    @ database
+        filename_database
